@@ -1,29 +1,31 @@
-# Sandbox-2 for OpenGL
+# OpenGL Base for CG
 
 This is the boiler template for OpenGL. It contains the base needed for OpenGL to be up and running with few library packed, in <code>include</code> directory. 
 
-<code>
-<ul>
-  <li>GLFW - OpenGL Context (for creating windows, handling inputs...)</li>
-  <li>GLAD - OpenGL Loaders (to load openGL function pointers in ease)</li>
-  <li>GLM - Math Library(includes vectors, matrix,...)</li>
-  <li>Freetype - Text Loading Library (Glyph based)</li>
-  <li>Stb - Image manipulation (reading, writing,...)</li>
-</ul>
-</code>
+  - GLFW - OpenGL Context (for creating windows, handling inputs...)
+  - GLAD - OpenGL Loaders (to load openGL function pointers in ease)
+  - GLM - Math Library(includes vectors, matrix,...)
+  - Freetype - Text Loading Library (Glyph based)
+  - Stb - Image manipulation (reading, writing,...)
 
-<b>If only basic boiler required, use main branck</b> : https://github.com/Thaparoshan143/OpenGL_Sandbox
-<h2>Follow as :</h2>
-<ul>
-  <li>Clone the project <code>git clone https://github.com/Thaparoshan143/OpenGL_Sandbox</code></li>
-  <li>Change the code as per need with entry point at main.cpp (in sandbox)</li>
-  <li>Makefile is used for the compiling and building. Change the working directory to builds (to use makefile for compiling) in terminal. Inspect and change Makefile according to requirement.</li>
-  <li>type command in terminal : <code>make build_m</code>(Platform will be auto detected by Makefile)</li>
-  <li>Then run test (is inside builds/Exe/)</li>
-</ul>
+##### #Note : For fresh (Apple silicon) make sure to install few dependencies from homebrew
+`brew install gcc make freetype glfw glm`
 
-### Warning: This boiler is made using mac system (M1). Few things might need change on other patform eg: -
-<li>directory change with / -> \</li>
-<li>Few of the dll might be missing while .exe launch</li>
+and also check if it is corretly installed in your system afterwards in terminal with commands
+- `g++ --version`
+- `make --version`
 
-<h5>Note: Dll should be in same folder as .exe (in window)<h5>
+## Follow as :
+- Clone the project `git clone https://github.com/Thaparoshan143/OpenGL_Sandbox`
+- Change the code as per need with entry point at main.cpp (in sandbox)
+  - Makefile is used for the compiling and building. Change the working directory to builds (to use makefile for compiling) in terminal. Inspect and change Makefile according to requirement.
+  - type command in terminal : `make build_m` (Platform will be auto detected by Makefile)
+  - Then run test (is inside `builds/Exe/`)
+
+**If only basic boiler required, use main branch** : [here](https://github.com/Thaparoshan143/OpenGL_Sandbox)
+
+#### Warning: This boiler is made using mac system (M1). Few things might need change on other patform eg: -
+- directory change with / $\rightarrow$ \
+- Few of the dll might be missing while .exe launch
+
+<h5>Note: dll should be in same folder as .exe (in window)<h5>
