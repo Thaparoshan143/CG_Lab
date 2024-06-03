@@ -2,6 +2,7 @@
 #pragma once
 
 #include<iostream>
+#include<vector>
 
 #include"../includes/GLM/glm/glm.hpp"
 
