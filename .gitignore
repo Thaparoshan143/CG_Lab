@@ -1,6 +1,6 @@
 builds/Exe/test
 builds/Exe/test.exe
 .vscode
-builds/*.obj
+builds/**/*.obj
 builds/*.txt
 .DS_Store
