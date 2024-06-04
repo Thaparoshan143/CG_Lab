@@ -8,6 +8,7 @@ LINKER_WIN = .././lib/win/libglfw3dll.a .././lib/win/libfreetype.dll.a
 CFLAGS = --std=c++11 -Wall -Wextra $(foreach D, $(INC_PATH), -I$(D))
 PLATFORM_DIR_OFF = ../Platform/OpenGL/
 SANDBOX_DIR_OFF = ../Sandbox/
+SRC_DIR_OFF = ../src/
 UNAME_S := $(shell uname -s)
 
 # src files inside the sandbox
@@ -35,7 +36,7 @@ endif
 $(OBJ_DIR)%.obj: $(PLATFORM_DIR_OFF)%.cpp 
 	$(CXX) $(CFLAGS) -c -o $@ $<
 	
-$(OBJ_DIR)%.obj: $(SANDBOX_DIR_OFF)%.cpp 
+$(OBJ_DIR)%.obj: $(SRC_DIR_OFF)%.cpp 
 	$(CXX) $(CFLAGS) -c -o $@ $<
 
 clean_build: clean build_m
