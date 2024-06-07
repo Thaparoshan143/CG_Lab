@@ -29,13 +29,15 @@ namespace Extra
 			x2y2 = Util::get_2dpoint("# Final:");
 			#else
 			x1y1 = fVec2(0, 0);
-			x2y2 = fVec2(SCR_HEIGHT/4, SCR_WIDTH);
+			x2y2 = fVec2(SCR_HEIGHT/9, SCR_WIDTH/2);
 			#endif
 			del = fVec2(x2y2.x - x1y1.x, x2y2.y - x1y1.y);
 
 			int step = abs(del.x) > abs(del.y) ? abs(del.x) : abs(del.y);
 			inc = fVec2(del.x/step, del.y/step);
-			fVec2 xy = fVec2(x1y1.x, x1y1.y);
+			std::cout << " ---- Incremental : -----" << std::endl;
+			std::cout << inc.x << ", " << inc.y << std::endl;
+ 			fVec2 xy = fVec2(x1y1.x, x1y1.y);
 
 			std::vector<float> plotpoint;
 			plotpoint.clear();
@@ -43,15 +45,16 @@ namespace Extra
 			// Calculation of the intermediate points
 			while(step > 0)
 			{
-				xy = fVec2(xy.x + inc.x, xy.y + inc.y);
+				xy = fVec2((xy.x + inc.x), (xy.y + inc.y));
 				plotpoint.push_back(xy.x);
 				plotpoint.push_back(xy.y);
 				step--;
 			}
 
+			Util::vector_roundup(plotpoint);
 			// normalize from scren space to -1 to 1
-			Util::normalizeM11_point2d(plotpoint.data(), plotpoint.size(), iVec2(SCR_WIDTH, SCR_HEIGHT));
 			print_point2d(plotpoint.data(), plotpoint.size(), '\n');
+			Util::normalizeM11_point2d(plotpoint.data(), plotpoint.size(), iVec2(SCR_WIDTH, SCR_HEIGHT));
 
 			VertexArrayObject VAO(BufferLayout::PP);
 			VertexBufferObject VBO;
