@@ -1,4 +1,8 @@
-#include"./DDALineAlgo.cpp"
+// #include"./DDALineAlgo.cpp"
+#include"./BresenhamLDA.cpp"
+#ifndef EXPORT_ENABLED
+#include"./include_header.h"
+#endif
 
 int main()
 {

@@ -59,4 +59,14 @@ namespace Util
         std::cin >> temp.x >> temp.y;
         return temp;
     }
+
+    template<typename T = float>
+    void vector_roundup(std::vector<T> &target)
+    {
+        T *raw = target.data();
+        for(int i=0;i<target.size();i++)
+        {
+            *(raw + i) = round(*(raw+i));
+        }
+    }
 }
