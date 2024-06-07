@@ -7,16 +7,18 @@ struct WindowInfo
 	int width, height;
 	String title;
 
+    WindowInfo() {};
 	WindowInfo(int w, int h, String t): width(w), height(h), title(t) {}	
+    WindowInfo(WindowInfo &winInfo) {   *this = winInfo;    };
 
-	WindowInfo operator=(const WindowInfo &winInfo)
+	WindowInfo& operator = (const WindowInfo &winInfo)
 	{
 		this->width = winInfo.width;
 		this->height = winInfo.height;
 		this->title = winInfo.title;
 
 		return *this;
-	}	
+	}
 };
 
 namespace Interface
@@ -34,7 +36,7 @@ namespace Interface
         virtual void SetColor(Color4 &col) = 0;
         virtual void SwapFrameBuffer() = 0;
         inline iVec2 GetWindowSize() { return iVec2(m_winInfo.width, m_winInfo.height); }
-        inline WindowInfo GetWindowInfo() { return m_winInfo; }
+        inline WindowInfo& GetWindowInfo() { return m_winInfo; }
         void SetWindowInfo(WindowInfo &wi) {  m_winInfo = wi; }
 
 		IApplication &m_targetApp;

@@ -15,7 +15,7 @@ namespace Interface
 
         virtual void Initialize() = 0;
         virtual void Loop() = 0;
-		inline ApplicationInfo GetAppInfo() {   return m_window->GetWindowInfo();    }
+		inline ApplicationInfo& GetAppInfo() {   return m_window->GetWindowInfo();    }
 
         IWindow *m_window;
     };

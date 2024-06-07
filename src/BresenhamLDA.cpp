@@ -15,7 +15,7 @@ namespace Extra
 	class BresenhamApp : public OpenGL_Application
 	{
 		public:
-		BresenhamApp(ApplicationInfo appinf): OpenGL_Application(appInfo) {}
+		BresenhamApp(ApplicationInfo appinf): OpenGL_Application(appinf) {}
 
 		void Initialize() override
 		{

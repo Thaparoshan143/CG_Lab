@@ -13,7 +13,7 @@ namespace Extra
 	class DDAApp : public OpenGL_Application
 	{
 		public:
-		DDAApp(ApplicationInfo appinf): OpenGL_Application(appInfo) {}
+		DDAApp(ApplicationInfo appinf): OpenGL_Application(appinf) {}
 
 		void Initialize() override
 		{

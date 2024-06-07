@@ -9,7 +9,7 @@ namespace Util
         // get new block for point as well as color (3) 
         float *temp = new float[count + ((count*3)/2)];
 
-        for(int i=0;i<count/2;++i)
+        for(uint i=0;i<count/2;++i)
         {
             *(temp + 5*i) = *(rawpointxy + 2*i);
             *(temp + 5*i + 1) = *(rawpointxy + 2*i + 1);
@@ -24,7 +24,7 @@ namespace Util
     // modifies the passed raw array against -1 to 1 range
     void normalizeM11_point2d(float *rawxy, uint count, iVec2 screensize)
     {
-        for(int i=0;i<count/2;++i)
+        for(uint i=0;i<count/2;++i)
         {
             *(rawxy + 2*i) = (*(rawxy + 2*i) - (screensize.x/2.0))/(screensize.x/2.0);
             *(rawxy + 2*i + 1) = (*(rawxy + 2*i + 1) - (screensize.y/2.0))/(screensize.y/2.0);
@@ -34,7 +34,7 @@ namespace Util
     // modifies the passed raw array against 0 to 1 range
     void normalize01_point2d(float *rawxy, uint count, iVec2 screensize)
     {
-        for(int i=0;i<count/2;++i)
+        for(uint i=0;i<count/2;++i)
         {
             *(rawxy + 2*i) = (*(rawxy + 2*i)/float(screensize.x));
             *(rawxy + 2*i + 1) = (*(rawxy + 2*i + 1)/float(screensize.y));

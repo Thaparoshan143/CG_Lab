@@ -104,7 +104,7 @@ namespace OpenGL
 	{
 		if(m_uniformList.count(name) == 0)
 		{
-			uint location = glGetUniformLocation(m_programID, name.c_str());
+			int location = glGetUniformLocation(m_programID, name.c_str());
 			if(location == -1)
 			{
 				std::cout << "Given Uniform named variable not found in Shader!!" << std::endl;
