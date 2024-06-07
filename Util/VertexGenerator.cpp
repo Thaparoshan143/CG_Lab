@@ -113,4 +113,13 @@ void print_float(float *data, uint count, char seperator='\n')
         std::cout << *(data+i) << seperator;
     }
 }
+
+void print_point2d(float *data, uint count, char seperator='\n')
+{
+    std::cout << "=> Point are as :\n";
+    for(int i=0;i<count/2;++i)
+    {
+        std::cout << "X : " << *(data+2*i) << ",\t\tY : " << *(data+2*i + 1) << seperator;
+    }
+}
 #endif
