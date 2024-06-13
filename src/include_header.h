@@ -7,6 +7,7 @@
 #include"../Platform/OpenGL/OpenGL_Window.h"
 #include"../Platform/OpenGL/OpenGL_Application.h"
 #include"../Platform/OpenGL/OpenGL_Buffer.h"
+#include"../Platform/OpenGL/OpenGL_Text.h"
 
 #define TESTMODE
 #include"../Util/VertexGenerator.cpp"
