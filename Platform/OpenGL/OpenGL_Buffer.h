@@ -52,6 +52,8 @@ namespace OpenGL
         void Unbind() override;
         // Buffer is Offload from CPU to GPU Memory
         void OffloadData() override;
+		void ReserveBuffer(uint size, uint loadMode = GL_DYNAMIC_DRAW);
+		void LoadSubBuffer(uint size, float *data);
     };
 
     class IndexBufferObject : public Interface::IBufferObject<uint> 
@@ -63,6 +65,8 @@ namespace OpenGL
         void Unbind() override;
         // Buffer is Offload from CPU to GPU Memory
         void OffloadData() override;
+		void ReserveBuffer(uint size, uint loadMode = GL_DYNAMIC_DRAW);
+		void LoadSubBuffer(uint size, uint *data);
     };
 
     class VertexArrayObject
@@ -72,6 +76,7 @@ namespace OpenGL
 
         void SetBufferLayout(BufferLayout layout) { m_layout = layout;   }
         void SetVertexAttributePointer(bool normalized = GL_FALSE);
+        void SetVertexAttributePointerMan(uint count, bool normalized = GL_FALSE);
 
         void Bind();
         void Unbind();

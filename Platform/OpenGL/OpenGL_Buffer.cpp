@@ -24,6 +24,18 @@ namespace OpenGL
         glBufferData(GL_ARRAY_BUFFER, m_data.size() * sizeof(float), m_data.data(), m_usage);
     }
 
+    void VertexBufferObject::ReserveBuffer(uint size, uint loadMode)
+    {
+        Bind();
+        glBufferData(GL_ARRAY_BUFFER, sizeof(float) * size, NULL, loadMode);
+    }
+
+    void VertexBufferObject::LoadSubBuffer(uint size, float *data)
+    {
+        Bind();
+        glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(float) * size, data);
+    }
+
     IndexBufferObject::IndexBufferObject(uint usage)
     {
         glGenBuffers(1, &m_id);
@@ -39,6 +51,18 @@ namespace OpenGL
     {
         Bind();
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_data.size() * sizeof(uint), m_data.data(), m_usage);
+    }
+
+    void IndexBufferObject::ReserveBuffer(uint size, uint loadMode)
+    {
+        Bind();
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * size, NULL, loadMode);
+    }
+
+    void IndexBufferObject::LoadSubBuffer(uint size, uint *data)
+    {
+        Bind();
+        glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, sizeof(uint) * size, data);
     }
 
     void IndexBufferObject::Unbind()
@@ -75,6 +99,13 @@ namespace OpenGL
             glEnableVertexAttribArray(i);
             offset += sizeof(float) * vertCount;
         }
+    }
+
+    void VertexArrayObject::SetVertexAttributePointerMan(uint count, bool normalized)
+    {
+        glBindVertexArray(this->m_id);
+		glVertexAttribPointer(0, count, GL_FLOAT, normalized, count * sizeof(float), 0);
+		glEnableVertexAttribArray(0);
     }
 
     uint VertexArrayObject::getLayoutCount()
