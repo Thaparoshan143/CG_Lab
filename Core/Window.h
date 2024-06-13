@@ -35,6 +35,7 @@ namespace Interface
         virtual void SetColor(float r, float g, float b, float a) = 0;
         virtual void SetColor(Color4 &col) = 0;
         virtual void SwapFrameBuffer() = 0;
+        virtual void* GetWindow() = 0;
         inline iVec2 GetWindowSize() { return iVec2(m_winInfo.width, m_winInfo.height); }
         inline WindowInfo& GetWindowInfo() { return m_winInfo; }
         void SetWindowInfo(WindowInfo &wi) {  m_winInfo = wi; }
