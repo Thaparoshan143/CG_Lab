@@ -27,7 +27,8 @@ namespace Util
         for(uint i=0;i<count/2;++i)
         {
             *(rawxy + 2*i) = (*(rawxy + 2*i) - (screensize.x/2.0))/(screensize.x/2.0);
-            *(rawxy + 2*i + 1) = (*(rawxy + 2*i + 1) - (screensize.y/2.0))/(screensize.y/2.0);
+            // because y works on invertex form as, lower bottom is 0, 0 and top right is 1, 1 so, for other mapping of top left to 0, 0
+            *(rawxy + 2*i + 1) = ((screensize.y - *(rawxy + 2*i + 1)) - (screensize.y/2.0))/(screensize.y/2.0);
         }
     }
 
@@ -37,7 +38,8 @@ namespace Util
         for(uint i=0;i<count/2;++i)
         {
             *(rawxy + 2*i) = (*(rawxy + 2*i)/float(screensize.x));
-            *(rawxy + 2*i + 1) = (*(rawxy + 2*i + 1)/float(screensize.y));
+            // mapping reverse y-axis form
+            *(rawxy + 2*i + 1) = ((screensize.y - *(rawxy + 2*i + 1))/float(screensize.y));
         }
     }
 
