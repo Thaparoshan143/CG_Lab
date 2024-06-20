@@ -1,6 +1,7 @@
 // #include"./DDALineAlgo.cpp"
 // #include"./BresenhamLDA.cpp"
-#include"./CircleDrawingAlgo.cpp"
+// #include"./CircleDrawingAlgo.cpp"
+#include"./EllipseDrawingAlgo.cpp"
 #ifndef EXPORT_ENABLED
 #include"./include_header.h"
 #endif
