@@ -33,7 +33,8 @@ namespace Extra
             center = Util::get_2dpoint("Ellipse Center : ");
             radius = Util::get_2dpoint("Ellipse Radius : ");
             std::cout << "Enter the text to display in center : " << std::endl;
-            std::cin >> displayText;
+            getchar();
+            getline(std::cin, displayText);
             #else
             center = fVec2(SCR_WIDTH/2, SCR_HEIGHT/2);
             radius = fVec2(250, 180);
