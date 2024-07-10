@@ -8,7 +8,7 @@ namespace Extra
     #define SCR_WIDTH 800
     #define SCR_HEIGHT 800
     #define POINT_SIZE 3.0
-    // #define INPUT_ENABLE 
+    #define INPUT_ENABLE 
     #define FONT_SCALE 1.5
 
     ApplicationInfo appInfo(SCR_WIDTH, SCR_HEIGHT, "Transformation");
@@ -77,8 +77,8 @@ namespace Extra
             rotAngle = Util::get_title_input<float>("Enter the rotation radian : ");
             #else
             translation = fVec2(-0.5, -0.5);
-            scaleFactor = fVec3(0.8);
-            rotAngle = 3.1415/2.0;
+            scaleFactor = fVec3(0.5);
+            rotAngle = 3.1415/2.5;
             #endif
 
             if(shape == 1)
@@ -128,10 +128,9 @@ namespace Extra
 
             if(pos.x != 0 || pos.y !=0)
             {
-                totalMat = _get_mat4_translation(fVec2(pos.x * -1, pos.y * -1));
-                totalMat *= _get_mat4_rotation(rotAngle);
+                totalMat = _get_mat4_rotation(rotAngle);
                 totalMat *= _get_mat4_scale(scaleFactor);
-                totalMat *= _get_mat4_translation(pos);
+                totalMat *= _get_mat4_translation(translation);
             }
             else
             {
