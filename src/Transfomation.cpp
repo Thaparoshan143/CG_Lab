@@ -41,7 +41,7 @@ namespace Extra
     class TransformApp : public OpenGL_Application
     {
         public:
-        TransformApp(ApplicationInfo appInfo) : OpenGL_Application(appInfo), objectShader("../res/Shaders/proj/"), textShader("../res/Shaders/Text/")
+        TransformApp(ApplicationInfo appInfo) : OpenGL_Application(appInfo), objectShader("../res/Shaders/proj/"), textShader("../res/Shaders/Text/projbased/")
         {
             targetText = new FreetypeText(displayText);
             targetText->SetAligment(Interface::TextAlignment::CENTER);
@@ -80,6 +80,7 @@ namespace Extra
             scaleFactor = fVec3(0.5);
             rotAngle = 3.1415/2.5;
             #endif
+            displayText = "078BCT036";
 
             if(shape == 1)
             {
@@ -145,7 +146,8 @@ namespace Extra
 
                 VAO.Bind();
                 glDrawArrays(GL_TRIANGLES, 0, plotPoints.size()/2);
-                targetText->RenderText(textShader, pos.x, pos.y, FONT_SCALE, Color3(1, 1, 0), true);
+
+                targetText->RenderText(textShader, pos.x, pos.y, FONT_SCALE, Color3(1, 0, 0), false);
         
                 m_window->SwapFrameBuffer();
                 glfwPollEvents();
