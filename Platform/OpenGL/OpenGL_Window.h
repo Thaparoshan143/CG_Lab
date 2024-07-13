@@ -22,7 +22,7 @@ namespace OpenGL
 		void SetColor(Color4 &col) override {	SetColor(col.r, col.g, col.b, col.a);	}
 		void SwapFrameBuffer() override {	glfwSwapBuffers(this->m_glfwWindow);	}
 		void SetWindowInfo(WindowInfo &wi);
-		void* GetWindow() override {	return (void*)m_glfwWindow;	}
+		void* GetWindow() override {	return m_glfwWindow;	}
 
 		void initializeOpenGLWindow(int w, int h, String t);
 
