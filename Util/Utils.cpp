@@ -71,4 +71,10 @@ namespace Util
             *(raw + i) = round(*(raw+i));
         }
     }
+
+    fVec2 normalize_vec2(fVec2 val)
+    {
+        float sqrtVal = sqrt(pow(val.x, 2) + pow(val.y, 2));
+        return fVec2(val.x / sqrtVal, val.y / sqrtVal);
+    }
 }
